@@ -37,7 +37,7 @@ const american = {
 };
 const coffee = {
     name: "Coffee and light meal\n",
-    description: "Coffee is the one true love?",
+    description: "Coffee is the one true love.",
     img_src: 'https://mona.net.au/resize/width/1000/media/37385/museum-cafe-coffee-mona-01.jpg',
     dead: false
 };
@@ -60,42 +60,51 @@ const numlineup = [0,1,2,3,4,5,6,7,0,1,2,3,0,1];
 setCard(0,1);
 
 document.getElementById('option-0').addEventListener('click', function () {
-    roundNum++;
     console.log(roundNum);
 
+
     if (roundNum <= 4) {
-        quartF.push(menus[currentCard[1]]);
-    } else if (roundNum < 6) {
-        final.push(menus[currentCard[1]]);
+        quartF.push(menus[currentCard[0]]);
+    } else if (roundNum <= 6) {
+        final.push(quartF[currentCard[0]]);
     }
     console.log('QF='+quartF);
     console.log('F='+final);
+
 
     let a = numlineup[roundNum*2];
     let b = numlineup[roundNum*2+1];
 
+
     setCard(a,b);
-    currentCard = [a,b]
+    currentCard = [a,b];
+    roundNum++;
+
 });
 
 document.getElementById('option-1').addEventListener('click', function () {
-    roundNum++;
+
+
     console.log(roundNum);
 
 
     if (roundNum <= 4) {
-        quartF.push(currentCard[0]);
-    } else if (roundNum < 6) {
-        final.push(currentCard[0]);
+        quartF.push(menus[currentCard[1]]);
+    } else if (roundNum <= 6) {
+        final.push(quartF[currentCard[1]]);
     }
     console.log('QF='+quartF);
     console.log('F='+final);
 
-    let a = roundNum*2;
-    let b = a+1;
+
+    let a = numlineup[roundNum*2];
+    let b = numlineup[roundNum*2+1];
+
 
     setCard(a,b);
-    currentCard = [a,b]
+    currentCard = [a,b];
+    roundNum++;
+
 });
 
 function init() {
