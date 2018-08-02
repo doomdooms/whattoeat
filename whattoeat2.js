@@ -48,3 +48,46 @@ const joker = {
     dead: false
 };
 
+let menus = [chinese, italian, japanese, thai, joker, mexican, american, coffee ];
+let currentCard = [0,1];
+let roundNum = 0;
+
+setCard(0,1);
+
+document.getElementById('option-0').addEventListener('click', function () {
+    menus.splice(roundNum+1,1);
+    if (menus.length === 4) {
+        roundNum = 0;
+    } else if (menus.length === 2) {
+        roundNum = 0;
+    } else {
+        roundNum++;
+    }
+    currentCard = [roundNum,roundNum+1];
+    setCard(roundNum, roundNum+1);
+
+});
+
+document.getElementById('option-1').addEventListener('click', function () {
+
+    menus.splice(roundNum,1);
+    if (menus.length === 4) {
+        roundNum = 0;
+    } else if (menus.length === 2) {
+        roundNum = 0;
+    } else {
+        roundNum++;
+    }
+    currentCard = [roundNum,roundNum+1];
+    setCard(roundNum, roundNum+1);
+});
+
+
+function setCard(a,b) {
+    document.getElementById('title0').textContent = menus[a].name;
+    document.getElementById('title1').textContent = menus[b].name;
+    document.getElementById('text0').textContent = menus[a].description;
+    document.getElementById('text1').textContent = menus[b].description;
+    document.getElementById('wrapper0').style.background = 'url(' + menus[a].img_src + ')';
+    document.getElementById('wrapper1').style.background = 'url(' + menus[b].img_src + ')';
+}
