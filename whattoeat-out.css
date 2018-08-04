@@ -14,7 +14,7 @@ a {
 }
 h1 {
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
 }
 .row {
     max-width: 900px;
@@ -98,21 +98,7 @@ h1 {
     transform: translate(-50%, -10px);
     opacity: 1;
 }
-.example-2 .header {
-    color: #fff;
-    padding: 1em;
-}
-.example-2 .header::before, .example-2 .header::after {
-    content: '';
-    display: table;
-}
-.example-2 .header::after {
-    clear: both;
-}
-.example-2 .header .date {
-    float: left;
-    font-size: 12px;
-}
+
 .example-2 .menu-content {
     float: right;
 }
@@ -162,7 +148,7 @@ h1 {
 }
 
 .example-1 .content {
-    background-color: floralwhite;
+    background-color: rgba(255, 246, 227, 0.6);
     box-shadow: 0 5px 30px 10px rgba(0, 0, 0, 0.3);
 }
 .example-1 .title a {
@@ -227,4 +213,36 @@ h1 {
 }
 .example-1 .menu-content span {
     top: -10px;
+}
+
+.game-over {
+
+    display: none;
+    width: 50vw;
+    height: 50vh;
+    background-color: floralwhite;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin: auto;
+}
+
+.nav {
+    width: 15rem;
+    height: 3rem;
+    line-height: 3rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    overflow: hidden;
+    background-color: #ff853f;
+    color: white;
+    margin: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+    position: fixed;
 }

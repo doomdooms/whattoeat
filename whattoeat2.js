@@ -53,6 +53,7 @@ let currentCard = [0,1];
 let roundNum = 0;
 
 setCard(0,1);
+roundDisplay();
 
 document.getElementById('option-0').addEventListener('click', function () {
     menus.splice(roundNum+1,1);
@@ -63,6 +64,11 @@ document.getElementById('option-0').addEventListener('click', function () {
     } else {
         roundNum++;
     }
+    if (menus.length === 1) {
+        endgame();
+        return;
+    }
+    roundDisplay();
     currentCard = [roundNum,roundNum+1];
     setCard(roundNum, roundNum+1);
 
@@ -78,10 +84,20 @@ document.getElementById('option-1').addEventListener('click', function () {
     } else {
         roundNum++;
     }
+    if (menus.length === 1) {
+        endgame();
+        return;
+    }
+    roundDisplay();
     currentCard = [roundNum,roundNum+1];
     setCard(roundNum, roundNum+1);
 });
 
+function endgame() {
+    document.getElementById('option-0').style.display = 'none';
+    document.getElementById('option-1').style.display = 'none';
+    document.querySelector('.game-over').style.display = 'block';
+}
 
 function setCard(a,b) {
     document.getElementById('title0').textContent = menus[a].name;
@@ -90,4 +106,15 @@ function setCard(a,b) {
     document.getElementById('text1').textContent = menus[b].description;
     document.getElementById('wrapper0').style.background = 'url(' + menus[a].img_src + ')';
     document.getElementById('wrapper1').style.background = 'url(' + menus[b].img_src + ')';
+}
+
+function roundDisplay() {
+    console.log('working?');
+    if (menus.length > 4) {
+        document.querySelector('.nav').textContent = 'Preliminary';
+    } else if (menus.length > 2) {
+        document.querySelector('.nav').textContent = 'Quarter Finals';
+    } else {
+        document.querySelector('.nav').textContent = 'FINAL ROUND';
+    }
 }
