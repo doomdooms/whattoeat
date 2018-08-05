@@ -216,17 +216,50 @@ h1 {
 }
 
 .game-over {
-
     display: none;
     width: 50vw;
     height: 50vh;
-    background-color: floralwhite;
+    background-color: beige;
     position: absolute;
     bottom: 0;
     right: 0;
     left: 0;
     top: 0;
     margin: auto;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+}
+
+.game-over h1 {
+    text-align: center;
+    color: #ff4a4d;
+    font-weight: 700;
+}
+
+.game-over p {
+    text-align: center;
+    font-weight: 400;
+
+}
+
+.game-over button {
+    display:inline-block;
+    padding:0.35em 1.2em;
+    border:0.1em solid #ff4a4d;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    color: #ff4a4d;
+    background-color: beige;
+    text-align:center;
+    font-size: large;
+    transition: all 0.2s;
+    position: relative;
+    left: 42%;
+}
+.game-over button:hover{
+    color: beige;
+    background-color: #ff4a4d;
 }
 
 .nav {

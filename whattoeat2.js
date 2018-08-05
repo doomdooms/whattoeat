@@ -97,6 +97,7 @@ function endgame() {
     document.getElementById('option-0').style.display = 'none';
     document.getElementById('option-1').style.display = 'none';
     document.querySelector('.game-over').style.display = 'block';
+    document.querySelector('.nav').style.display = 'none';
 }
 
 function setCard(a,b) {
