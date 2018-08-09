@@ -48,12 +48,17 @@ const joker = {
     dead: false
 };
 
-let menus = [chinese, italian, japanese, thai, joker, mexican, american, coffee ];
-let currentCard = [0,1];
-let roundNum = 0;
+let menus, currentCard, roundNum;
 
-setCard(0,1);
-roundDisplay();
+init();
+
+function init() {
+    menus = [chinese, italian, japanese, thai, joker, mexican, american, coffee ];
+    currentCard = [0,1];
+    roundNum = 0;
+    setCard(0,1);
+    roundDisplay();
+}
 
 document.getElementById('option-0').addEventListener('click', function () {
     menus.splice(roundNum+1,1);
@@ -93,11 +98,20 @@ document.getElementById('option-1').addEventListener('click', function () {
     setCard(roundNum, roundNum+1);
 });
 
+document.querySelector('.game-over button').addEventListener('click',function() {
+    document.getElementById('option-0').style.display = 'block';
+    document.getElementById('option-1').style.display = 'block';
+    document.querySelector('.game-over').style.display = 'none';
+    document.querySelector('.nav').style.display = 'inline-block';
+    init();
+});
+
 function endgame() {
     document.getElementById('option-0').style.display = 'none';
     document.getElementById('option-1').style.display = 'none';
     document.querySelector('.game-over').style.display = 'block';
     document.querySelector('.nav').style.display = 'none';
+    document.getElementById('winner-menu').textContent = menus[0].name;
 }
 
 function setCard(a,b) {
@@ -110,7 +124,6 @@ function setCard(a,b) {
 }
 
 function roundDisplay() {
-    console.log('working?');
     if (menus.length > 4) {
         document.querySelector('.nav').textContent = 'Preliminary';
     } else if (menus.length > 2) {
