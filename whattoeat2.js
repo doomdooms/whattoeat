@@ -52,6 +52,10 @@ let menus, currentCard, roundNum;
 
 init();
 
+document.querySelector('#start-banner button').addEventListener('click',function() {
+    document.querySelector('#start-banner').style.display = 'none';
+});
+
 function init() {
     menus = [chinese, italian, japanese, thai, joker, mexican, american, coffee ];
     currentCard = [0,1];
@@ -98,7 +102,7 @@ document.getElementById('option-1').addEventListener('click', function () {
     setCard(roundNum, roundNum+1);
 });
 
-document.querySelector('.game-over button').addEventListener('click',function() {
+document.querySelector('#gameover button').addEventListener('click',function() {
     document.getElementById('option-0').style.display = 'block';
     document.getElementById('option-1').style.display = 'block';
     document.querySelector('.game-over').style.display = 'none';

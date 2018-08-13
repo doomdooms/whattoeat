@@ -288,4 +288,9 @@ h1 {
 
 #start-banner {
     display: block;
+    padding: 3rem;
+}
+
+#start-banner button {
+    left: 37%;
 }
